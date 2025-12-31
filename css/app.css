@@ -1,0 +1,227 @@
+:root {
+    --txt-color: #fff;
+    --timer-box-bg: #1c2451;
+    --timer-box-txt-bg: #085391;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    color: var(--txt-color);
+    font-family: 'Poppins', sans-serif;
+
+    background-image: url("../assets/colombo-night.jpeg");
+    background-size: cover;
+    background-position: bottom left;
+    background-repeat: no-repeat;
+}
+
+.fireworks-container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-position: bottom left;
+    background-size: cover;
+    background-repeat: no-repeat;    
+}
+
+.content-wrapper {
+    z-index: 99;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.header {
+    font-size: 3rem;
+    font-weight: 300;
+}
+
+.year {
+    font-size: 15rem;
+    font-weight: 900;
+    line-height: 1.5;
+    text-shadow:
+    0 0 5px #fff,  
+    0 0 10px #ae00ff, 
+    0 0 15px #ae00ff, 
+    0 0 20px #ae00ff; 
+}
+
+.timer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.timer > * ~ * {
+    margin-left: 4rem;
+}
+
+.timer-box {
+    background-color: var(--timer-box-bg);
+}
+
+.timer-box__count {
+    --size: 10rem;
+    width: var(--size);
+    height: var(--size);
+    display: grid;
+    place-items: center;
+}
+
+.timer-box__count > span {
+    font-size: 5rem;
+    font-weight: 500;
+}
+
+.timer-box__text {
+    display: grid;
+    place-items: center;
+    background-color: var(--timer-box-txt-bg);
+    padding: 1rem 0;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+@media only screen and (max-width: 1200px) {
+    html {
+        font-size: 60%;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    html {
+        font-size: 40%;
+    }
+}
+
+.greeting {
+    position: fixed;
+    top: 10%;
+    text-align: center;
+    width: 100%;
+    font-size: 3rem;
+    font-weight: 700;
+    color: gold;
+    z-index: 5;
+    animation: pop 1s ease;
+}
+
+.greeting span {
+    color: #ff4081;
+}
+
+@keyframes pop {
+    from { transform: scale(0.7); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.modal-content {
+    background: #0f172a;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 300px;
+    text-align: center;
+}
+
+.modal-content h2 {
+    margin-bottom: 1rem;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+    border: none;
+}
+
+.modal-content button,
+.modal-content a {
+    display: block;
+    width: 100%;
+    margin-top: 0.7rem;
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    background: #0a66c2;
+    color: #fff;
+    text-decoration: none;
+}
+
+.create-btn {
+    padding: 12px 20px;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    background: #0a66c2;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.create-btn:hover {
+    transform: scale(1.05);
+}
+
+.greeting.big {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    font-weight: 800;
+    text-align: center;
+    z-index: 10;
+    animation: zoomFade 1.5s ease forwards;
+}
+
+.greeting.big span {
+    color: #ff4d6d;
+}
+
+.greeting .sub {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    opacity: 0;
+    animation: fadeUp 1s ease forwards;
+    animation-delay: 1.2s;
+}
+
+@keyframes zoomFade {
+    from { transform: scale(0.6); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
